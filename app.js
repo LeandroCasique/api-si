@@ -43,6 +43,24 @@ const swaggerDefinition = {
       description: 'Development server',
     },
   ],
+  components: {
+      schemas: {
+
+      },
+      securitySchemes: {
+          Bearer: {
+              type: "http",
+              description: "Enter JWT Bearer token **_only_**",
+              scheme: "bearer",
+              bearerFormat: "JWT"
+          },
+          BasicAuth: {
+              type: "http",
+              scheme: "basic"
+          }
+      }
+  }
+
 
 
 };
@@ -50,7 +68,7 @@ const swaggerDefinition = {
 const options = {
   swaggerDefinition,
   // Paths to files containing OpenAPI definitions
-  apis: ['./routes/*.js', './routes/api/company.route.js', './routes/api/user.route.js']
+  apis: ['./routes/*.js', './routes/api/company.route.js', './routes/api/user.route.js', './routes/api/organization.route.js']
 };
 
 const swaggerSpec = swaggerJSDoc(options);
